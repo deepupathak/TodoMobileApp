@@ -1,0 +1,143 @@
+<head>
+  <title>Todo</title>
+</head>
+<template name="signup">
+  <div class="container">
+    <h1 class="page-header">Create an account</h1>
+    <form role="form" class="register">         
+      <div class="form-group">
+        <label>First Name :<span class="required-field">*</span></label>
+        <input type="text" class="form-control" name="fname" placeholder="First Name" required>
+      </div>
+      <div class="form-group">
+        <label>Last Name :<span class="required-field">*</span></label>
+        <input type="text" class="form-control" name="lname" placeholder="Last Name" required>
+      </div>
+      <div class="form-group">
+        <label>Email Id :<span class="required-field">*</span></label>
+        <input type="email" class="form-control" name="email" placeholder="Email Id" required>
+      </div>
+      <div class="form-group">
+        <label>Password :<span class="required-field">*</span></label>  
+        <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+      </div>
+      <div class="form-group">
+        <label>Confirm Password :<span class="required-field">*</span></label>  
+        <input type="password" class="form-control" name="cpass" placeholder="Confirm Password" required>
+      </div>
+      <div class="form-group">  
+        <button type="submit" class="btn btn-success btn-block">Sign up</button>
+        <a href="/"><button type="button" class="btn btn-primary btn-block">Back</button></a>
+      </div>
+    </form>
+  </div>
+</template>
+
+<template name="signin">
+  <div class="container">
+    <h1 class="page-header">Signin to access your account</h1>
+    <form role="form" class="signin">
+      <div class="form-group">
+        <input type="text" name="email" class="form-control input-lg" placeholder="Email Address" required>
+      </div>
+      <div class="form-group">
+        <input type="password" name="password" class="form-control input-lg" placeholder="Password" required>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-success btn-block">Log In</button>
+        <a href="/signup"><button type="button" class="btn btn-primary btn-block">Sign Up</button></a>
+      </div>
+    </form>
+  </div>
+</template>
+
+<template name="home">
+  <div class="container">
+    <header>
+      <h1>Todo List ({{incompleteCount}})</h1>
+      <label class="hide-completed">
+        <input type="checkbox" />
+        Hide Completed Tasks
+      </label>
+      <form class="new-task">
+        <input type="text" name="text" placeholder="Type to add new tasks" required>
+      </form>
+    </header>
+    <div id="tasklist">
+      <ul>
+        {{#each tasks}}
+          {{> task}}
+        {{/each}}
+      </ul>
+    </div>
+    <p id="footer">
+      <a class="logout pull-left" href="">Logout</a>
+      <a class="changePassword pull-right" href="">Change Password</a>
+    </p>
+  </div>
+</template>
+
+<template name="forgotPassword">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 class="page-header">Recover Password</h1>
+        <form role="form" class="recover-password">
+          <p class="alert alert-info">Enter your email address below to receive a link to reset your password.</p>
+          <div class="form-group">
+            <label>Email Address :<span class="required-field">*</span></label>
+            <input type="email" name="email" id="emailAddress" class="form-control" placeholder="Email Address" required>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-success btn-block">Recover Password </button>
+            <a href="/"><button type="button" class="btn btn-primary btn-block">Back</button></a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="recoverPassword">
+  <div class="container">
+    <h1 class="page-header">Change Password</h1>
+    <form role="form" class="recover">
+      <div class="from-group">
+        <label>Old Password :<span class="required-field">*</span></label>
+        <input type="password" id="old" class="form-control" name="oldPassword" placeholder="Old Password" required>
+      </div>
+      <div class="from-group">
+        <label>New Password :<span class="required-field">*</span></label>
+        <input type="password" id="new" class="form-control" name="newPassword" placeholder="New Password" required>
+      </div>
+      <div class="from-group">
+        <label>Confirm Password :<span class="required-field">*</span></label>
+        <input type="password" id="confirm" class="form-control" name="cpass" placeholder="Confirm Password" required>
+      </div>
+      <div class="from-group">
+        <button type="submit" class="btn btn-success btn-block">Save</button>
+        <a href="/home"><button type="button" class="btn btn-primary btn-block">Back</button></a>
+      </div>
+    </form>
+  </div>
+</template>
+
+<template name="resetPassword">
+  <div class="container">
+    <h1 class="page-header">Change Password</h1>
+    <form role="form" class="reset">
+      <div class="from-group">
+        <label>New Password :<span class="required-field">*</span></label>
+        <input type="password" id="new" class="form-control" name="newPassword" placeholder="New Password" required>
+      </div>
+      <div class="from-group">
+        <label>Confirm Password :<span class="required-field">*</span></label>
+        <input type="password" id="confirm" class="form-control" name="cpass" placeholder="Confirm Password" required>
+      </div>
+      <div class="from-group">
+        <button type="submit" class="btn btn-success btn-block">Save</button>
+        <a href="/home"><button type="button" class="btn btn-primary btn-block">Back</button></a>
+      </div>
+    </form>
+  </div>
+</template>
